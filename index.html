@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Money Tracker</title>
+</head>
+<style>
+  * {
+    margin: 0px;
+    padding: 0px;
+  }
+  body {
+    background-color: black;
+  }
+  h1 {
+    color: white;
+    font-size: 52px;
+    margin: auto;
+  }
+  form {
+    color: white;
+    font-size: 25px;
+  }
+  .main {
+    display: flex;
+    flex-direction: column;
+  }
+  .child {
+    margin: 20px auto;
+    padding: 20px;
+    border: 2px solid white;
+    border-radius: 20px;
+  }
+  .child-item {
+    margin: 10px 0px;
+  }
+  button {
+    margin: 10px 0px;
+    padding: 6px 20px;
+    height: 30px;
+    width: 150px;
+  }
+</style>
+<body>
+  <div class="main">
+  <h1>Welcome to Money Tracker</h1>
+  <form class="child" action="/addTransaction" method="post">
+    <label class="child-item" for="category">Category:</label>
+    <select class="child-item" id="category" name="category" required>
+      <option value="" disabled selected>Select a category</option>
+      <option value="health">Health</option>
+      <option value="groceries">Groceries</option>
+      <option value="transportation">Transportation</option>
+      <option value="loan">Loan</option>
+      <option value="entertainment">Entertainment</option>
+    </select><br>
+  
+    <label class="child-item" for="description">Description:</label>
+    <input class="child-item" type="text" id="description" name="description" required><br>
+  
+    <label class="child-item" for="amount">Amount:</label>
+    <input class="child-item" type="number" id="amount" name="amount" required><br>
+  
+    <button type="submit">Add Transaction</button>
+  </form>
+</div>
+</body>
+</html>

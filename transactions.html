@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../style.css">
+  <title>Transaction History</title>
+</head>
+<style>
+  body {
+    background-color: black;
+    list-style: none;
+  }
+  h1 {
+    color: white;
+    margin: 25px auto;
+  }
+  .main {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+  .child {
+    margin: auto;
+    color: white;
+  }
+  table, tr, td, th{
+    border: 2px solid white;
+    border-collapse: collapse;
+  }
+  td {
+    padding: 8px;
+  }
+</style>
+<body>
+  <div class="main">
+  <h1>Transaction History</h1>
+  <table class="child">
+    <tr>
+      <th>Sno</th>
+      <th>Description</th>
+      <th>Amount</th>
+      <th>Date</th>
+    </tr>
+    <% 
+    let totalAmount = 0; // Variable to store the total amount 
+    transactions.forEach((transaction, index) => { 
+      totalAmount += transaction.amount;
+    %>
+      <tr>
+        <td><%= index + 1 %></td>
+        <td><%= transaction.description %></td>
+        <td>Rs:- <%= transaction.amount %>/-</td>
+        <td><%= transaction.date.toLocaleDateString() %></td>
+      </tr>
+    <% }); %>
+    <tr>
+      <td colspan="2">Total Transactions:</td>
+      <td colspan="2">Rs:- <%= totalAmount %>/-</td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>
